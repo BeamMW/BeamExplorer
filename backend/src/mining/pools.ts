@@ -5,7 +5,7 @@
 // Verified against data.miningpoolstats.stream/data/beam.js on 2026-06-29.
 
 export type AdapterKind =
-  | 'open-eth'         // open-ethereum-pool family (2miners)
+  | 'open-eth'         // open-ethereum-pool family (2miners, bumblebeam)
   | 'cryptonote-node'  // cryptonote-nodejs-pool family (herominers)
   | 'sunpool'
   | 'cedric';
@@ -29,4 +29,7 @@ export const POOLS: PoolDescriptor[] = [
   { id: 'herominers',     name: 'HeroMiners',     website: 'https://beam.herominers.com',      baseUrl: 'https://beam.herominers.com',      adapter: 'cryptonote-node', payoutScheme: 'PROP',  fee: 0.9 },
   { id: 'sunpool',        name: 'SunPool',        website: 'https://beam.sunpool.top',         baseUrl: 'https://beam.sunpool.top',         adapter: 'sunpool',         payoutScheme: 'PPLNS', fee: 0 },
   { id: 'cedric-crispin', name: 'Cedric Crispin', website: 'https://beam.cedric-crispin.com',  baseUrl: 'https://beam.cedric-crispin.com',  adapter: 'cedric',          payoutScheme: 'PPLNS', fee: 0.1 },
+  // Open-source pool (github.com/profinch/bumblebeam). One API serves both PPLNS and solo;
+  // /api/stats and /api/blocks follow the open-ethereum-pool shape. Fee 0.5% on both.
+  { id: 'bumblebeam',     name: 'BumbleBeam',     website: 'https://pool.bumblebeam.org',      baseUrl: 'https://pool.bumblebeam.org',      adapter: 'open-eth',        payoutScheme: 'PPLNS / SOLO', fee: 0.5 },
 ];
